@@ -10,20 +10,20 @@ with open('texts.csv', 'r') as f:
 with open('calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
-# create a dictionary
-phone_dict = {}
-# for phone in range(len(calls)):
-#     if calls[phone][0] not in phone_dict.keys():
-#         phone_dict[calls[phone][0]] = int(calls[phone][3])
-#     else:
-#         phone_dict[calls[phone][0]] += int(calls[phone][3])
+# create a set()
+uniques_numbers = set()
 
-for number in range(len(calls)):
-    phone_dict[calls[number][0]] = phone_dict.get(int(calls[number][3]), 0) + 1
+for i in range(len(texts)):
+    # Find uniques phone numbers for both sender and reciver in texts.
+    uniques_numbers.add(texts[i][0])
+    uniques_numbers.add(texts[i][1])
 
+for v in range(len(calls)):
+    # Find uniques phone numbers for both sender and reciver in texts.
+    uniques_numbers.add(calls[v][0])
+    uniques_numbers.add(calls[v][1])
 
-phone_numbers = len(phone_dict.keys())
-print("There are {} different telephone numbers in the records.".format(phone_numbers))
+print("There are {} different telephone numbers in the records.".format(len(uniques_numbers)))
 
 """
 TASK 1:
