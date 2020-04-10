@@ -1,0 +1,20 @@
+
+Calculate Big O For Unscramble Computer Science Problems.
+
+Task0:
+This task will take a Constant Time of O(1).
+Thus No matter the size of the input data, the running time will always be the same.
+
+Task1:
+This task will take linear time i.e., O(n). I have a function that has a set which takes a Constant Time of O(1), and 2 for loops each => O(n)
+
+Task2:
+This task will take linear time i.e., O(n). The for loop takes a linear time O(n), while max items in list takes O(n)
+
+Task3:
+This task is divided into two parts:
+Part A total time complexity is O(n log n).
+Part B total time complexity is O(n)
+
+Task4:
+This task will take time complexity of O(n log n)

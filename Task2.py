@@ -12,30 +12,25 @@ with open('calls.csv', 'r') as f:
     calls = list(reader)
 
 
+def getLongestTime(calls):
 
-#Create a dictionary for sender phone calls records
-callers_record = {}
+    phone_record_dict = {} # O(1)
 
-for call in calls:
-    for number in [0,1]:
-        try:
-            callers_record[call[number]] += int(call[3])
-        except KeyError:
-            callers_record[call[number]] = int(call[3])
+    for caller, reciver, time_stamp, duration in calls: # O(n) for the loop
+        if caller not in phone_record_dict:
+            phone_record_dict[caller] = int(duration)
+        else:
+            phone_record_dict[caller] += int(duration)
+        if reciver not in phone_record_dict:
+            phone_record_dict[reciver] = int(duration)
+        else:
+            phone_record_dict[reciver] += int(duration)
 
-print(len(callers_record.keys()))
+    phone, time = (max(phone_record_dict.items(), key=lambda x: x[1])) # O(n)
+    return phone, time
 
-# Loop the dictionary to get the number and call duration
-max_call_time = 0
-phone_number = " "
-
-for record in callers_record:
-    if callers_record[record] >= max_call_time:
-        max_call_time = callers_record[record]
-        phone_number = record
-
-print('{} spent the longest time, {} seconds, on the phone during September 2016.'.format(phone_number, max_call_time))
-
+phone_number, call_duration = getLongestTime(calls)
+print('{} spent the longest time, {} seconds, on the phone during September 2016.'.format(phone_number, call_duration))
 
 """
 TASK 2: Which telephone number spent the longest time on the phone

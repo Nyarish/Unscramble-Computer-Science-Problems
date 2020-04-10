@@ -11,23 +11,12 @@ with open('texts.csv', 'r') as f:
 with open('calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
-# Create variables to store the numbers, timestamp and duration fot text and calls
 
-# texts
-text_sender_number = texts[0][:1]
-text_reciver_number = texts[0][1:-1]
-text_time_stamp = texts[0][2:]
+# Time Complexity is O(1)
+print("First record of texts, {} texts {} at time {}".format(texts[0][0], texts[0][1], texts[0][2]))
 
-# calls 
-calls_sender_number = calls[-1][:1]
-calls_reciver_number = calls[-1][1:-2]
-call_time_stamp = calls[-1][2:3]
-call_duration = calls[-1][-1]
-
-print("First record of texts, {} texts {} at time {}".format(text_sender_number[0], text_reciver_number[0], text_time_stamp[0]))
-
-
-print("Last record of calls, {} calls {} at time {}, lasting {} seconds".format(calls_sender_number[0], calls_reciver_number[0], call_time_stamp[0], call_duration[0]))
+# Time Complexity is O(1)
+print("Last record of calls, {} calls {} at time {}, lasting {} seconds".format(calls[-1][0], calls[-1][1], calls[-1][2], calls[-1][3]))
 
 
 """

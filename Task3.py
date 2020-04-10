@@ -12,41 +12,49 @@ with open('calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
 
-Bangalore_nums = set()
 
-for num in calls:
-    # check if caller and reciver is from bangalore
-    if num[0].startswith("(080)"):
-        if num[1].startswith('('):
-            fixed_prefix = num[1].split(")")
-            Bangalore_nums.add(fixed_prefix[0])#add(num[1])
-        if num[1].startswith('7'):
-            Bangalore_nums.add(num[1][:4])
-        if num[1].startswith('8'):
-            Bangalore_nums.add(num[1][:4])
-        if num[1].startswith('9'):
-            Bangalore_nums.add(num[1][:4])
-        if num[1].startswith('140'):
-            Bangalore_nums.add(num[1])
-Bangalore_records = list(Bangalore_nums)
-Bangalore_records.sort()
+def getAreaCodes(calls):
+
+    Bangalore_nums = set() # O(1)
+    for num in calls: # O(n)
+        # check if caller and reciver is from bangalore
+        if num[0].startswith("(080)"):
+            if num[1].startswith('('):
+                fixed_prefix = num[1].split(")")
+                Bangalore_nums.add(fixed_prefix[0])#add(num[1])
+            if num[1].startswith('7'):
+                Bangalore_nums.add(num[1][:4])
+            if num[1].startswith('8'):
+                Bangalore_nums.add(num[1][:4])
+            if num[1].startswith('9'):
+                Bangalore_nums.add(num[1][:4])
+            if num[1].startswith('140'):
+                Bangalore_nums.add(num[1])
+    Bangalore_records = list(Bangalore_nums) #O(1)
+    Bangalore_records.sort() # O(n log n)
+    return Bangalore_records
+
+Bangalore_records = getAreaCodes(calls)
 
 print("The numbers called by people in Bangalore have codes:")
 for area_code in Bangalore_records:
     print(area_code)
 
 
-counter_1 = 0
-counter_2 = 0
+def getPercentageOfCalls(calls):
+    counter_1 = 0
+    counter_2 = 0
 
-for call in calls:
-    if call[0].startswith("(080)"):
-        counter_1 += 1  #denominator - all the calls from (080)
-        if call[1].startswith("(080)"):
-            counter_2 += 1.  #numerator - all the calls from (080) to (080)
-percentage = round((counter_2 / counter_1)*100,2)
+    for call in calls: # O(n)
+        if call[0].startswith("(080)"):
+            counter_1 += 1  #denominator - all the calls from (080)
+            if call[1].startswith("(080)"):
+                counter_2 += 1.  #numerator - all the calls from (080) to (080)
 
-percentage = round((counter_2 / counter_1)*100,2)
+    percentage = round((counter_2 / counter_1)*100,2)
+    return percentage
+
+percentage = getPercentageOfCalls(calls)
 print("{} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(percentage))
 
 
