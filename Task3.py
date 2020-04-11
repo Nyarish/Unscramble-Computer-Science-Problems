@@ -42,8 +42,8 @@ for area_code in Bangalore_records:
 
 
 def getPercentageOfCalls(calls):
-    counter_1 = 0
-    counter_2 = 0
+    counter_1 = 0 # O(1)
+    counter_2 = 0 # O(1)
 
     for call in calls: # O(n)
         if call[0].startswith("(080)"):

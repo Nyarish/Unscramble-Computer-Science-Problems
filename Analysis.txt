@@ -1,20 +1,85 @@
 
 Calculate Big O For Unscramble Computer Science Problems.
 
-Task0:
-This task will take a Constant Time of O(1).
-Thus No matter the size of the input data, the running time will always be the same.
 
-Task1:
-This task will take linear time i.e., O(n). I have a function that has a set which takes a Constant Time of O(1), and 2 for loops each => O(n)
+Task 0:
+This task Worst case time-complexity is Big O(1).
+Total time complexity = O(1)
 
-Task2:
-This task will take linear time i.e., O(n). The for loop takes a linear time O(n), while max items in list takes O(n)
+The time-complexity for this program is Big O(1) because we are not iterating the elements from input lists (calls or texts). i.e We are accessing the first and last value from the lists (calls and texts) by an index.
 
-Task3:
+
+Task 1:
+This task Worst case time-complexity is Big O(n).
+
+The time complexity is a linear time of O(n) because we are using a set to find uniques phone numbers for both sender and receiver in (calls/ texts) using a for loops to iterate the lists.
+
+** Calculation of Big O **
+We have a function that has the following lines of code:
+    1. a set which takes time-complexity of Big O(1),
+    2. Two for loops which takes time-complexity of Big O(n)
+    3. return time-complexity of Big O(1)
+
+Since adding 2 constants of a Big O results in the same constant i.e (O(1) + O(1) == O(1) or (O(n) + O(n)) == O(n)), which shall then look for the fastest growing 'n' term as our time complexity.
+
+Total time complexity = (O(1) + O(n+n) => O(2n) + O(1)) we can round it off to Big O(n) or (O(1) + O(n+n) + O(1)) => O(n)
+
+Task 2:
+This task Worst case time-complexity is Big O(n).
+The time complexity is Big O(n) because we are using a dictionary which stores the number and time_stamp, and then use a for loop and if condition to get total duration for each phone number, then use the Max function to phone number with highest time spent on phone.
+
+** Calculation of Big O **
+We have a function that has the following lines of code:
+
+    1. A dictionary which takes a time-complexity of Big O(1)
+    2. A for loop which takes time-complexity of Big O(n)
+    3. A max of all the records which takes time-complexity of Big O(n)
+    4. return time-complexity of Big O(1)
+
+Total time complexity = (O(1) + O(n) + O(n) + O(1)) => O(n)
+
+
+Task 3:
 This task is divided into two parts:
-Part A total time complexity is O(n log n).
-Part B total time complexity is O(n)
+
+Part A:
+This task Worst case time-complexity is Big O(n log n).
+The time complexity is Big O(n log n) because we are using a set to get unique values of callers and receiver from Bangalore. Then use a for loop and if condition to get area codes of fixed and mobile numbers in Bangalore. We then use the sort function to get the lexicographic order with no duplicates.
+
+** Calculation of Big O **
+We have a function that has the following lines of code:
+    1. A set which takes time-complexity of Big O(1),
+    2. A for loops which takes time-complexity of Big O(n),
+    3. A record of numbers which takes time-complexity of Big O(1),
+    4. A sort function which takes time-complexity of Big O(n log n),
+    5. return time-complexity of Big O(1)
+
+Total time complexity = (O(1) + O(n) + O(n) +  O(n log n) + O(1)) => O(n log n)
+
+Part B :
+This task Worst case time-complexity is Big O(n).
+The time complexity is Big O(n) because we are using a for loop to iterate through area code that starts with(080) for both callers and receiver and getting the percentage.
+
+** Calculation of Big O **
+We have a function that has the following lines of code:
+    1. Two counters with time-complexity of Big O(1) * 2,
+    2. A for loops which takes time-complexity of Big O(n),
+    3. A double if condition which takes time-complexity of Big O(1),
+    4. A variable that calculates the percentage that takes time-complexity of Big O(1)
+    5. return time-complexity of Big O(1)
+
+Total time complexity = (O(1) + O(1) + O(n) + O(1) + O(1) + O(1)) => O(n)
 
 Task4:
-This task will take time complexity of O(n log n)
+This task Worst case time-complexity is Big O(n log n).
+The time complexity is Big O(n log n) because we are using a list comprehensions that has a set to remove duplicates from the incoming and outgoing calls and texts. We then use a for loops and if conditions to iterate through the list and store the results in a sorted list for printing.
+
+** Calculation of Big O **
+We have a function that has the following lines of code:
+    1. Four list comprehensions with sets takes time-complexity of Big O(n). O(4n) => O(n),
+    2. sorting takes time-complexity of Big O(n log n),
+    3. A record of numbers which takes time-complexity of Big O(1),
+    4. A for loop printing sorted list takes time-complexity of Big O(n)
+    5. return time-complexity of Big O(1)
+
+Total time complexity is (O(4n) => O(n) + O(n log n) + O(1) + O(n) + O(1) ) => O(n log n)
